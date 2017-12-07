@@ -23,7 +23,10 @@ var populateList = function(beers) {
   beers.forEach(function(beer) {
     var li = document.createElement('li');
     li.innerText = beer.name;
+    var img = document.createElement('img');
+    img.src = beer.image_url;
     ul.appendChild(li);
+    ul.appendChild(img);
   });
 }
 
