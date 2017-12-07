@@ -18,7 +18,7 @@ var requestComplete = function() {
   populateList(beers);
 }
 
-var populateList(beers) = function() {
+var populateList = function(beers) {
   var ul = document.getElementById('beer-list')
   beers.forEach(function(beer) {
     var li = document.createElement('li');
