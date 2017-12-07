@@ -21,10 +21,38 @@ var requestComplete = function() {
 var populateList = function(beers) {
   var ul = document.getElementById('beer-list')
   beers.forEach(function(beer) {
+
     var li = document.createElement('li');
-    li.innerText = beer.name;
+    li.innerText = `${beer.name}: ${beer.tagline}`;
+
+    var ing = document.createElement('li');
+    ing.innerText = "Ingredients:"
+
     var img = document.createElement('img');
     img.src = beer.image_url;
+
+    liMalt = document.createElement('li');
+    var maltString = "Malts: \n";
+    for (malt of beer.ingredients.malt) {
+      maltString += `${malt.name} \n`
+    }
+    liMalt.innerText = maltString;
+
+    liHops = document.createElement('li');
+    var hopsString = "Hops: \n";
+    for (hops of beer.ingredients.hops) {
+      hopsString += `${hops.name} \n`
+    }
+    liHops.innerText = hopsString;
+
+    liYeast = document.createElement('li');
+    var yeastString = `Yeast: \n${beer.ingredients.yeast}`;
+    liYeast.innerText = yeastString;
+
+    li.appendChild(ing);
+    li.appendChild(liMalt);
+    li.appendChild(liHops);
+    li.appendChild(liYeast);
     ul.appendChild(li);
     ul.appendChild(img);
   });
