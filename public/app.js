@@ -18,4 +18,13 @@ var requestComplete = function() {
   populateList(beers);
 }
 
+var populateList(beers) = function() {
+  var ul = document.getElementById('beer-list')
+  beers.forEach(function(beer) {
+    var li = document.createElement('li');
+    li.innerText = beer.name;
+    ul.appendChild(li);
+  });
+}
+
 window.addEventListener('load', app);
