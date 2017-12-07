@@ -11,4 +11,11 @@ var makeRequest = function(url, callback) {
   request.send();
 }
 
+var requestComplete = function() {
+  if(this.status !== 200) return;
+  var jsonString = this.responseText;
+  var beers = JSON.parse(jsonString);
+  populateList(beers);
+}
+
 window.addEventListener('load', app);
